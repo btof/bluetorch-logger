@@ -1,0 +1,24 @@
+{
+  "name": "bluetorch-logger",
+  "version": "1.0.0",
+  "description": "A package that wraps winston with udp transport & a specific log format",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prod": "npm run build && node dist/index.js",
+    "start": "nodemon --watch \"./src/**/*\" -e ts --exec \"npm run build && node dist/index.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "udp-transport-winston": "^1.2.10",
+    "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.6.3"
+  }
+}
