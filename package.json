@@ -9,8 +9,8 @@
     "prod": "npm run build && node dist/index.js",
     "start": "nodemon --watch \"./src/**/*\" -e ts --exec \"npm run build && node dist/index.js\""
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["logs, udp, format"],
+  "author": "btof",
   "license": "ISC",
   "dependencies": {
     "udp-transport-winston": "^1.2.10",
