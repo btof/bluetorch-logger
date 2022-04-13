@@ -1,1 +1,1 @@
-export { BluetorchLogger } from "./logger";
+export { createBluetorchLogger } from "./logger";
