@@ -1,20 +1,18 @@
 import { format } from "winston";
-import { BluetorchLoggerConfig } from "./logger-config";
 
 const levelStylist = format((log) => {
     log.level = log.level.toUpperCase().trim();
     return log;
 });
 
-const messageStylist = (config: BluetorchLoggerConfig) => format.printf((log) => {
+const messageStylist = (appName: string) => format.printf((log) => {
     const {timestamp, level, message} = log;
-    return `${timestamp} ${level} ${config.appName} ${message.trimStart()}`;
+    return `${timestamp} ${level} ${appName} ${message}`;
 })
 
-export default (config: BluetorchLoggerConfig) => format.combine(
+export default (appName: string) => format.combine(
     levelStylist(),
     format.colorize(),
     format.timestamp({format: 'MM-DD-YYYY hh:mm:ss.SSS'}),
-    format.align(),
-    messageStylist(config),
+    messageStylist(appName),
 );

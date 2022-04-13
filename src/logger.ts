@@ -3,13 +3,14 @@ import { createLogger, transports } from "winston";
 import { BluetorchLoggerConfig } from "./logger-config";
 import loggerFormat from "./logger-format";
 
-export const createBluetorchLogger = (config: BluetorchLoggerConfig) => {
+export const createBluetorchLogger = ({appName, level, host, port}: BluetorchLoggerConfig) => {
     const logger = createLogger({
-        format: loggerFormat(config),
+        format: loggerFormat(appName),
+        level: level,
         transports: [
             new UDPTransport({
-                host: config.host,
-                port: config.port,
+                host: host,
+                port: port,
                 handleExceptions: true,
             }),
         ],
