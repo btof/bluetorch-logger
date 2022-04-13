@@ -7,12 +7,12 @@ const levelStylist = format((log) => {
 
 const messageStylist = (appName: string) => format.printf((log) => {
     const {timestamp, level, message} = log;
-    return `${timestamp} ${level} ${appName} ${message}`;
+    return `${timestamp} ${level} ${appName} - ${message}`;
 })
 
 export const colorlessFormat = (appName: string) => format.combine(
     levelStylist(),
-    format.timestamp({format: 'MM-DD-YYYY hh:mm:ss.SSS'}),
+    format.timestamp({format: 'MM-DD-YYYY HH:mm:ss.SSS ZZ'}),
     messageStylist(appName),
 );
 
