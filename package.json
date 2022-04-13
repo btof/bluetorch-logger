@@ -1,6 +1,6 @@
 {
   "name": "bluetorch-logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A package that wraps winston with udp transport & a specific log format",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
