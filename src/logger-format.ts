@@ -10,9 +10,13 @@ const messageStylist = (appName: string) => format.printf((log) => {
     return `${timestamp} ${level} ${appName} ${message}`;
 })
 
-export default (appName: string) => format.combine(
+export const colorlessFormat = (appName: string) => format.combine(
     levelStylist(),
-    format.colorize(),
     format.timestamp({format: 'MM-DD-YYYY hh:mm:ss.SSS'}),
     messageStylist(appName),
+);
+
+export const colorfulFormat = (appName: string) => format.combine(
+    colorlessFormat(appName),
+    format.colorize(),
 );
