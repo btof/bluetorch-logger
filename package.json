@@ -1,6 +1,6 @@
 {
   "name": "bluetorch-logger",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A package that wraps winston with udp transport & a specific log format",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc",
     "prod": "npm run build && node dist/index.js",
-    "prepublish": "npm run build",
+    "publish-package": "npm run build && npm publish",
     "start": "nodemon --watch \"./src/**/*\" -e ts --exec \"npm run build && node dist/index.js\""
   },
   "keywords": [
