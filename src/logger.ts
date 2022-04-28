@@ -1,23 +1,30 @@
-import { UDPTransport } from "udp-transport-winston";
 import { createLogger, transports } from "winston";
 import { BluetorchLoggerConfig } from "./logger-config";
 import { colorlessFormat, colorfulFormat } from "./logger-format";
+import { UDPTransport } from "./udp-transport";
 
-export const createBluetorchLogger = ({ appName, level, host, port }: BluetorchLoggerConfig) => {
+export const createBluetorchLogger = ({
+    appName,
+    level,
+    host,
+    port,
+    logToConsole,
+    onSendError
+}: BluetorchLoggerConfig) => {
     const logger = createLogger({
         format: colorlessFormat(appName),
         level: level,
         exitOnError: false,
         transports: [
             new UDPTransport({
-                host: host,
-                port: port,
-                handleExceptions: true,
+                host,
+                port,
+                onSendError: onSendError,
             }),
         ],
     });
 
-    if (process.env.NODE_ENV !== 'production') {
+    if (logToConsole) {
         logger.add(new transports.Console({
             format: colorfulFormat(appName),
         }));
@@ -25,5 +32,3 @@ export const createBluetorchLogger = ({ appName, level, host, port }: BluetorchL
 
     return logger;
 }
-
-

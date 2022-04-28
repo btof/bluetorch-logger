@@ -12,11 +12,12 @@
     "prod": "npm run build && node dist/index.js",
     "start": "nodemon --watch \"./src/**/*\" -e ts --exec \"npm run build && node dist/index.js\""
   },
-  "keywords": ["logs, udp, format"],
+  "keywords": [
+    "logs, udp, format"
+  ],
   "author": "btof",
   "license": "ISC",
   "dependencies": {
-    "udp-transport-winston": "^1.2.10",
     "winston": "^3.7.2"
   },
   "devDependencies": {
