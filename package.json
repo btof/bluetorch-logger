@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc",
     "prod": "npm run build && node dist/index.js",
+    "prepublish": "npm run build",
     "start": "nodemon --watch \"./src/**/*\" -e ts --exec \"npm run build && node dist/index.js\""
   },
   "keywords": [
