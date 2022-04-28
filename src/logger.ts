@@ -19,7 +19,7 @@ export const createBluetorchLogger = ({
             new UDPTransport({
                 host,
                 port,
-                onSendError: onSendError,
+                onSendError,
             }),
         ],
     });

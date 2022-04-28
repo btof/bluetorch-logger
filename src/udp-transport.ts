@@ -25,7 +25,7 @@ export class UDPTransport extends Transport {
             message,
             this.options.port,
             this.options.host,
-            this.options.onSendError,
+            (error) => error && this.options.onSendError(error),
         );
     }
 };
